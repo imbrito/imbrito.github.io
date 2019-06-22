@@ -8,7 +8,7 @@ Welcome to my personal page.
 gender: male
 relationship: single
 born:
-    day: 03-31-1986
+    date: 03-31-1986
     city: Campos dos Goytacazes
     state: Rio de Janeiro
     country: Brazil
