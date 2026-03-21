@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Engenheiro de Dados & Software | Portfólio">
+    <meta property="og:description" content="Especialista em ecossistemas de dados escaláveis e IA.">
+    <!-- <meta property="og:image" content="link-para-uma-foto-sua-ou-print-do-site.png"> -->
+    <title>Engenheiro de Dados & Software | Portfólio Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #020617; 
+        }
+        
+        .mono { font-family: 'Fira Code', monospace; }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.12) 0%, rgba(2, 6, 23, 0) 60%);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .skill-badge {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            color: #a5b4fc;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(8px);
+            background: rgba(2, 6, 23, 0.85);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { animation: fadeIn 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="text-slate-300 selection:bg-indigo-500/30">
+
+    <!-- Navegação -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-600/20">S</div>
+                <span class="mono font-bold text-white tracking-tighter">ENG_DATA_SW</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
+                <a href="#perfil" class="hover:text-indigo-400 transition-colors">Perfil</a>
+                <a href="#dominios" class="hover:text-indigo-400 transition-colors">Domínios</a>
+                <a href="#trajetoria" class="hover:text-indigo-400 transition-colors">Trajetória</a>
+                <a href="#stack" class="hover:text-indigo-400 transition-colors">Stack</a>
+            </div>
+            <a href="mailto:seu-email@dominio.com" class="border border-indigo-500/50 text-indigo-400 px-4 py-2 rounded text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all">
+                CONTACTO
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="perfil" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-gradient">
+        <div class="max-w-5xl mx-auto px-6 text-center reveal">
+            <h2 class="mono text-indigo-400 text-sm mb-6 tracking-widest uppercase opacity-80">Construindo Ecossistemas de Dados Escaláveis</h2>
+            <h1 class="text-4xl md:text-7xl font-black text-white mb-8 tracking-tight leading-tight">
+                Transformando Petabytes em <span class="text-indigo-500">Ativos Estratégicos.</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
+                Engenheiro de Dados e Software com sólida trajetória em gigantes como <span class="text-white font-semibold">Mercado Livre, Globo e B2W</span>. Unindo o rigor da Engenharia de Software à agilidade da Analytics Engineering e Gen AI.
+            </p>
+            
+            <!-- Marcas/Empresas -->
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 mb-12">
+                <span class="text-xl font-bold tracking-tighter">MERCADO LIVRE</span>
+                <span class="text-xl font-bold tracking-tighter italic">GLOBO</span>
+                <span class="text-xl font-bold tracking-tighter">B2W DIGITAL</span>
+            </div>
+
+            <div class="flex justify-center gap-4">
+                <a href="#trajetoria" class="bg-indigo-600 px-8 py-4 rounded-lg font-bold text-white hover:bg-indigo-700 transition-all">
+                    Explorar Trajetória
+                </a>
+                <a href="#stack" class="bg-slate-800/50 border border-white/5 px-8 py-4 rounded-lg font-bold text-white hover:bg-slate-700 transition-all">
+                    Tech Stack
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domínios de Atuação -->
+    <section id="dominios" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 text-indigo-500">
+                    <i class="fas fa-microchip text-xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-3">Software Engineering</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Aplicação de rigor técnico como Java, Python e TDD para garantir pipelines resilientes e código de alta manutenibilidade.
+                </p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-emerald-500">
+                    <i class="fas fa-brain text-xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-3">AI Productivity</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Integração de Gen AI e LLMs no fluxo de desenvolvimento (Copilot, Prompting) para acelerar entregas e automação de SQL/Python.
+                </p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 text-amber-500">
+                    <i class="fas fa-shield-halved text-xl"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-3">Governance & FinOps</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Foco em Data Readiness, Compliance (LGPD) e monitorização de métricas críticas (SLOs e custos de infraestrutura).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajetória Profissional -->
+    <section id="trajetoria" class="py-24 bg-slate-950/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="text-2xl font-bold text-white mb-16 flex items-center gap-4">
+                <span class="w-8 h-[1px] bg-indigo-500"></span> Trajetória Profissional
+            </h3>
+            
+            <div class="space-y-16">
+                <div class="relative pl-12 border-l border-slate-800">
+                    <div class="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[6.5px] top-1.5 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-white tracking-tight">Especialista em Ecossistemas de Dados</h4>
+                            <p class="text-indigo-400 mono text-sm font-medium">Mercado Livre / Globo / B2W</p>
+                        </div>
+                        <span class="text-slate-500 text-xs font-bold mt-2 md:mt-0">SÉNIOR / STAFF ROLE</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Liderança técnica em projetos de migração On-premise para Cloud, arquitetura de Analytics Engineering e implementação de governança de dados em escala petabyte. Foco em converter desafios complexos de engenharia em soluções sustentáveis que garantem escala e rentabilidade.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">GCP BigQuery</span>
+                        <span class="skill-badge">Dataflow</span>
+                        <span class="skill-badge">Analytics Engineering</span>
+                        <span class="skill-badge">Compliance LGPD</span>
+                    </div>
+                </div>
+
+                <div class="relative pl-12 border-l border-slate-800">
+                    <div class="absolute w-3 h-3 bg-slate-700 rounded-full -left-[6.5px] top-1.5"></div>
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold text-white tracking-tight">Mentor Técnico & Líder de Engenharia</h4>
+                        <p class="text-slate-500 mono text-sm">Metodologias Ágeis & Times de Alta Performance</p>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Atuação como mentor de equipas técnicas, disseminando práticas de CI/CD, TDD e cultura Data-driven para acelerar o tempo de resposta do negócio às demandas de análise avançada.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Agile</span>
+                        <span class="skill-badge">CI/CD</span>
+                        <span class="skill-badge">Software Craftsmanship</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Grid -->
+    <section id="stack" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="glass-card p-12 rounded-[2rem] overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/5 blur-[100px]"></div>
+            <div class="relative z-10 grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-6 leading-tight">Linguagens & <br>Infraestrutura.</h3>
+                    <p class="text-slate-400 text-sm mb-8">Base sólida em stacks modernas para garantir que os dados estejam preparados para sustentar modelos de IA.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Python</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Java</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">SQL</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Spark</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Airflow</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">dbt</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 border-l border-white/5 pl-0 md:pl-12">
+                    <div>
+                        <h5 class="text-indigo-400 mono text-[10px] uppercase mb-4 tracking-widest font-bold">Cloud & Ops</h5>
+                        <ul class="text-sm text-slate-300 space-y-2">
+                            <li>GCP (BigQuery)</li>
+                            <li>AWS</li>
+                            <li>Kubernetes</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-indigo-400 mono text-[10px] uppercase mb-4 tracking-widest font-bold">Domínios</h5>
+                        <ul class="text-sm text-slate-300 space-y-2">
+                            <li>Big Data Architecture</li>
+                            <li>Data Governance</li>
+                            <li>FinOps</li>
+                            <li>Analytics Engineering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-4 tracking-tight">Pronto para o próximo desafio.</h2>
+            <p class="text-slate-500 text-sm mb-12 max-w-lg mx-auto leading-relaxed">Focado em converter complexidade técnica em rentabilidade organizacional e escala sustentável.</p>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors text-xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p class="mono text-[9px] text-slate-700 uppercase tracking-[0.4em]">
+                &copy; 2026 • Engenharia de Software e Dados de Alta Performance.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.glass-card, .relative.pl-12');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
