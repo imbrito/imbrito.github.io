@@ -1,146 +1,207 @@
+# imbrito.com.br
 
-# Configuração e Deploy de um Site no GitHub Pages
+Site pessoal e portfólio profissional de **Ismael Moreira de Brito** — engenheiro de dados
+e IA, Rio de Janeiro.
 
-## 1. Preparar o Repositório
+**Produção:** <https://imbrito.com.br> · **Deploy:** GitHub Pages, automático a cada push na `main`.
+
+---
+
+## Princípio de projeto
+
+Página única, estática, **sem etapa de build**. Nenhum Node, bundler, Jekyll, framework ou
+gerenciador de pacotes. Você edita `index.html` e dá push — é o site inteiro.
+
+A consequência mais importante: **o site não carrega nada de terceiros em runtime.** Zero
+CDN, zero Google Fonts, zero fonte de ícones. Isso não é purismo — é o que sustenta o LCP,
+elimina pontos de falha externos e evita compartilhar o IP de cada visitante com três
+empresas sem base legal.
+
+| | |
+|---|---|
+| Peso total da página | ~94 KB (11,5 KB de HTML gzip + 84,7 KB de fontes) |
+| Requisições a terceiros | 0 |
+| Subrecursos | 2 (as duas fontes, mesmo domínio) |
+| CSS / JS | inline no `index.html` |
+
+---
+
+## Estrutura
+
+```
+.
+├── index.html              O site inteiro: HTML + CSS inline + JSON-LD + ~40 linhas de JS
+├── 404.html                Página de erro (o GitHub Pages usa automaticamente)
+├── CNAME                   imbrito.com.br  — define o domínio customizado
+├── .nojekyll               Desliga o Jekyll. NÃO REMOVER (ver "Armadilhas")
+├── robots.txt              Libera tudo + permite explicitamente crawlers de LLM
+├── sitemap.xml             Uma URL, com lastmod
+├── site.webmanifest        Ícones, theme-color, nome do app
+├── favicon.ico             ICO com 3 PNGs embutidos (16/32/48 px)
+├── assets/
+│   ├── favicon.svg         Marca vetorial, sem dependência de fonte
+│   ├── apple-touch-icon.png   180×180
+│   ├── icon-192.png           192×192   (manifest, maskable)
+│   ├── icon-512.png           512×512   (manifest, maskable)
+│   ├── og-image.svg        Fonte editável do card social
+│   ├── og-image.png        1200×630 — é este que o LinkedIn/WhatsApp leem
+│   ├── ismael-moreira-de-brito.jpg   Foto de perfil 512×512 (hero + Person.image)
+│   └── fonts/
+│       ├── inter-latin-var.woff2        Inter variável, subset latin, 48 KB
+│       └── fira-code-latin-var.woff2    Fira Code variável, subset latin, 36 KB
+├── docs/
+│   ├── seo-audit.md        Auditoria que originou a refatoração (histórico)
+│   └── seo-checklist.md    Passos manuais pós-deploy — LEIA APÓS PUBLICAR
+├── README.md
+└── SECURITY.md
+```
+
+---
+
+## Rodar localmente
+
+Qualquer servidor estático serve. **Abrir `index.html` com `file://` não funciona** — os
+caminhos são absolutos (`/assets/...`) e não resolvem fora de um servidor.
 
 ```bash
-git init
-git add .
-git commit -m "Initial commit"
+python3 -m http.server 4321
 ```
 
-## 2. Criar Repositório no GitHub
+Depois abra <http://localhost:4321>. Para testar a `404.html`, acesse
+<http://localhost:4321/404.html> diretamente (o `http.server` não a serve automaticamente;
+o GitHub Pages serve).
 
-- Acesse [github.com](https://github.com)
-- Clique em "New repository"
-- Nomeie como `seu-usuario.github.io`
-- Clique em "Create repository"
+---
 
-## 3. Adicionar Remote e Push
+## Editar
+
+Tudo está em `index.html`, nesta ordem:
+
+| Linhas (aprox.) | O quê |
+|---|---|
+| 1–60 | `<head>`: title, description, canonical, Open Graph, Twitter, ícones, CSP |
+| 60–230 | Bloco JSON-LD (`Person`, `ProfilePage`, `WebSite`, `ImageObject`, `ScholarlyArticle`) |
+| 230–830 | CSS: tokens em `:root`, depois componentes, cada bloco comentado |
+| 830–1180 | HTML do conteúdo |
+| 1180–1215 | JS: montagem do e-mail + `IntersectionObserver` |
+
+**Ao mudar o conteúdo, mude também o JSON-LD.** Eles descrevem a mesma pessoa e divergir
+é pior que não ter markup nenhum. Um cargo novo, uma empresa nova ou uma data nova precisa
+aparecer nos dois lugares.
+
+**Ao mudar o conteúdo, atualize `<lastmod>` no `sitemap.xml`** e `dateModified` no
+`ProfilePage`. É o principal sinal de "recrawleie isto".
+
+### Paleta e contraste
+
+As cores estão em `:root`. Duas delas têm regra de uso:
+
+- `--text-faint` (`#7c8ba1`, 5,69:1) — o mais escuro que passa WCAG AA em texto pequeno.
+- `--text-muted` (`#64748b`, 4,24:1) — **só** para texto grande em negrito (≥18,66px/700),
+  cujo limite é 3:1. Usar em texto de corpo reprova AA.
+
+Ao introduzir cor nova, verifique o contraste contra o fundo composto antes de commitar.
+
+---
+
+## Regenerar os assets de imagem
+
+Nenhum destes arquivos é gerado no deploy — todos estão versionados. Só regere se mudar a
+marca ou o texto do card social.
+
+### Imagem OG (1200×630)
+
+`assets/og-image.svg` é a fonte editável. Para rasterizar com a tipografia correta é preciso
+que a Inter esteja disponível ao renderizador, então usa-se um wrapper HTML que declara a
+`@font-face` apontando para o `.woff2` local:
 
 ```bash
-git branch -M main
-git remote add origin https://github.com/seu-usuario/seu-usuario.github.io.git
-git push -u origin main
+cd "$(git rev-parse --show-toplevel)" && python3 - <<'EOF' && "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1 --screenshot=assets/og-image.png --window-size=1200,630 "file://$PWD/_og.html" && rm -f _og.html
+import os, re
+svg = open('assets/og-image.svg', encoding='utf-8').read()
+svg = re.sub(r'<\?xml.*?\?>', '', svg)
+css = ("@font-face{font-family:'Inter';src:url('%s/assets/fonts/inter-latin-var.woff2') format('woff2');font-weight:300 800;font-display:block}"
+       "@font-face{font-family:'Fira Code';src:url('%s/assets/fonts/fira-code-latin-var.woff2') format('woff2');font-weight:300 700;font-display:block}"
+       "*{margin:0;padding:0}html,body{width:1200px;height:630px;overflow:hidden;background:#020617}svg{display:block}") % (os.getcwd(), os.getcwd())
+open('_og.html','w',encoding='utf-8').write('<!DOCTYPE html><meta charset="utf-8"><style>%s</style>%s' % (css, svg))
+EOF
 ```
 
-## 4. Habilitar GitHub Pages
+Confira o resultado: `sips -g pixelWidth -g pixelHeight assets/og-image.png` deve dizer
+1200 × 630. Depois de publicar, force o LinkedIn a recarregar o cache pelo Post Inspector
+(ver `docs/seo-checklist.md`).
 
-- Vá para **Settings** do repositório
-- Na seção **Pages**, selecione a branch `main`
-- Escolha a pasta `/root` ou `/docs`
-- Clique em **Save**
+### Foto de perfil
 
-## 5. Aguardar Deploy
-
-- O GitHub Pages irá construir e publicar automaticamente
-- Seu site estará disponível em: `https://seu-usuario.github.io`
-
-## 6. Estrutura Mínima
-
-```
-seu-usuario.github.io/
-├── index.html
-├── style.css
-└── README.md
-```
-
-## 7. Push de Atualizações
+`assets/ismael-moreira-de-brito.jpg` é **auto-hospedada de propósito**. A URL original do
+CDN do LinkedIn é assinada e temporária (expirava em 20/08/2026) e é host de terceiro —
+seria bloqueada pela CSP e quebraria sozinha. Para trocar a foto:
 
 ```bash
-git add .
-git commit -m "Update content"
-git push
+sips -s format jpeg -s formatOptions 82 -z 512 512 nova-foto.png \
+     --out assets/ismael-moreira-de-brito.jpg
 ```
 
-O deploy ocorre automaticamente a cada push na branch principal.
+O nome do arquivo é descritivo de propósito: é sinal de SEO de imagem. Se mudar o tamanho,
+atualize `width`/`height` na tag `<img>` **e** no nó `#foto` do JSON-LD.
 
-## 8. Configurar um Domínio Dedicado
+### Favicons e ícones
 
-### 8.1. Adquirir um Domínio
-
-- Escolha um registrador de domínios (ex: Registro.br, GoDaddy, Namecheap, etc.)
-- Registre e pague por seu domínio personalizado
-- Anote os detalhes de acesso ao painel de controle do registrador
-
-### 8.2. Criar o Arquivo CNAME
-
-Crie um arquivo chamado `CNAME` na raiz do repositório com o nome do seu domínio:
+Derivados de `assets/favicon.svg`. Renderize a marca em 512 px sem cantos arredondados
+(o iOS e o Android aplicam a própria máscara), depois reduza com `sips`:
 
 ```bash
-echo "seu-dominio.com.br" > CNAME
+sips -z 192 192 assets/icon-512.png --out assets/icon-192.png
+sips -z 180 180 assets/icon-512.png --out assets/apple-touch-icon.png
 ```
 
-**Conteúdo do arquivo CNAME:**
-```
-seu-dominio.com.br
-```
-
-> **Nota:** Use apenas o domínio, sem `https://` ou `www` neste arquivo
-
-### 8.3. Configurar Registros DNS
-
-Acesse o painel de controle do seu registrador de domínios e configure os registros DNS:
-
-**Opção A - Usando registros A (recomendado):**
-
-Adicione os seguintes registros A apontando para os IPs do GitHub Pages:
-
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-Configure assim no seu registrador:
-- Host: `@` (ou deixe em branco)
-- Type: `A`
-- Value: `185.199.108.153` (repita para cada IP)
-
-**Opção B - Usando CNAME:**
-
-Se o registrador permitir CNAME no domínio raiz:
-- Host: `@` (ou deixe em branco)
-- Type: `CNAME`
-- Value: `seu-usuario.github.io`
-
-Se quiser usar o subdomínio `www`:
-- Host: `www`
-- Type: `CNAME`
-- Value: `seu-usuario.github.io`
-
-### 8.4. Validar no GitHub Pages
-
-- Vá para **Settings** do repositório
-- Na seção **Pages**, no campo "Custom domain", insira seu domínio
-- Clique em **Save**
-- O GitHub irá verificar os registros DNS (pode levar até 24 horas)
-- Após a validação, você pode marcar "Enforce HTTPS" para usar certificado SSL
-
-### 8.5. Verificar a Configuração
+O `favicon.ico` é um container com três PNGs (16, 32, 48 px). Para reconstruí-lo, gere os
+três PNGs com `sips -z N N` e empacote:
 
 ```bash
-# Verificar registros DNS (exemplo para Linux/Mac)
-dig seu-dominio.com.br
-nslookup seu-dominio.com.br
-
-# Deve retornar os IPs do GitHub ou apontar para seu-usuario.github.io
+python3 - <<'EOF'
+import struct
+srcs = [(16, '/tmp/i16.png'), (32, '/tmp/i32.png'), (48, '/tmp/i48.png')]
+blobs = [(s, open(p, 'rb').read()) for s, p in srcs]
+off = 6 + 16 * len(blobs)
+entries, data = b'', b''
+for size, blob in blobs:
+    entries += struct.pack('<BBBBHHII', size, size, 0, 0, 1, 32, len(blob), off)
+    data += blob; off += len(blob)
+open('favicon.ico', 'wb').write(struct.pack('<HHH', 0, 1, len(blobs)) + entries + data)
+EOF
 ```
 
-### 8.6. Solução de Problemas
+---
 
-**Domínio não resolve:**
-- Espere até 24 horas para propagação dos registros DNS
-- Verifique se o arquivo CNAME está no repositório
-- Confirme que os registros DNS foram adicionados corretamente no registrador
+## Armadilhas
 
-**HTTPS não funciona:**
-- Aguarde mais tempo para o certificado SSL ser gerado
-- Verifique se os registros DNS estão corretos
-- Tente remover e adicionar novamente o domínio em GitHub Pages
+**`.nojekyll` não pode sumir.** Sem esse arquivo, o GitHub Pages passa todo `.html` pelo
+parser de template Liquid, que **consome silenciosamente** qualquer `{{` ou `{%`. O bloco
+JSON-LD e o JavaScript ficariam corrompidos em produção sem erro nenhum, e funcionando
+perfeitamente no seu servidor local. É o tipo de bug que custa uma tarde.
 
-**O site redireciona para GitHub Pages:**
-- Verifique se o arquivo CNAME contém o domínio correto
-- Faça push do arquivo CNAME para o repositório
-- Aguarde alguns minutos para a propagação
+**A CSP no `<head>` é restritiva de propósito.** `default-src 'none'` — se você adicionar
+qualquer script, fonte, imagem ou stylesheet de outro host (inclusive analytics), precisa
+liberar o host na meta tag ou ele será bloqueado sem aviso visível na página. Se isso
+atrapalhar mais do que ajuda, a tag é uma linha só e pode ser removida.
+
+**Caminhos são absolutos.** `/assets/...`, não `assets/...`. Isso mantém tudo funcionando
+se um dia surgir uma subpágina, e é por isso que `file://` não funciona.
+
+**Uma URL canônica só.** `https://imbrito.com.br/` (apex, com barra final). O `www`, o
+`imbrito.github.io` e o `http` todos redirecionam com 301 para lá. Se você mudar o `CNAME`,
+tem que atualizar junto: `canonical`, `og:url`, `sitemap.xml`, todos os `@id` do JSON-LD e
+o `Sitemap:` do `robots.txt`.
+
+---
+
+## Deploy
+
+```bash
+git add -A && git commit -m "feat: descrição da mudança" && git push
+```
+
+O GitHub Pages publica em cerca de um minuto. **Depois de publicar, siga
+[`docs/seo-checklist.md`](docs/seo-checklist.md)** — há passos que só você pode executar
+(Search Console, validadores, invalidação de cache do LinkedIn).
