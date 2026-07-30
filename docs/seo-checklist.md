@@ -39,7 +39,7 @@ curl -s -o /dev/null -w "%{http_code}\n" https://imbrito.com.br/pagina-que-nao-e
 
 ## 1. Google Search Console
 
-- [ ] Adicionar a propriedade em <https://search.google.com/search-console>
+- [x] Adicionar a propriedade em <https://search.google.com/search-console>
 
   Escolha **"Prefixo do URL"** com `https://imbrito.com.br/`, não "Domínio" — a verificação
   por prefixo aceita uma meta tag no `<head>`, enquanto "Domínio" exige registro TXT no DNS.
@@ -50,9 +50,9 @@ curl -s -o /dev/null -w "%{http_code}\n" https://imbrito.com.br/pagina-que-nao-e
       `index.html`, logo abaixo de `<meta name="robots">`). **Não remova** — o Google
       revalida periodicamente e a propriedade cai se a tag sumir.
 
-- [ ] Enviar o sitemap: menu **Sitemaps** → `sitemap.xml` → Enviar.
+- [x] Enviar o sitemap: menu **Sitemaps** → `sitemap.xml` → Enviar.
 
-- [ ] Usar a **Inspeção de URL** em `https://imbrito.com.br/` e clicar em
+- [x] Usar a **Inspeção de URL** em `https://imbrito.com.br/` e clicar em
       "Solicitar indexação". Isso enfileira o rastreamento em vez de esperar o ciclo natural.
 
 - [ ] Em ~3 dias, verificar em **Páginas** se a URL aparece como "Indexada". Em ~2 semanas,
@@ -60,29 +60,29 @@ curl -s -o /dev/null -w "%{http_code}\n" https://imbrito.com.br/pagina-que-nao-e
 
 ## 2. Bing Webmaster Tools
 
-- [ ] <https://www.bing.com/webmasters> — permite **importar a propriedade direto do Google
+- [x] <https://www.bing.com/webmasters> — permite **importar a propriedade direto do Google
       Search Console**, o que evita repetir a verificação. Vale o esforço: o Bing alimenta
       o índice usado pelo ChatGPT Search e pelo Copilot.
-- [ ] Enviar o mesmo `sitemap.xml`.
+- [x] Enviar o mesmo `sitemap.xml`.
 
 ---
 
 ## 3. Validar os dados estruturados
 
-- [ ] **Schema Markup Validator** — esta é a ferramenta certa:
+- [x] **Schema Markup Validator** — esta é a ferramenta certa:
       <https://validator.schema.org/#url=https%3A%2F%2Fimbrito.com.br%2F>
 
       Esperado: 5 itens (`Person`, `ProfilePage`, `WebSite`, `ImageObject`,
       `ScholarlyArticle`), **0 erros**. Avisos sobre propriedades opcionais ausentes são
       aceitáveis.
 
-- [ ] **Rich Results Test** — <https://search.google.com/test/rich-results?url=https%3A%2F%2Fimbrito.com.br%2F>
+- [x] **Rich Results Test** — <https://search.google.com/test/rich-results?url=https%3A%2F%2Fimbrito.com.br%2F>
 
       > ⚠️ Ele vai dizer **"Nenhum item elegível para rich results detectado"**. **Isso não
       > é erro.** `Person` não gera enfeite na SERP para pessoas físicas, então a ferramenta
       > não reporta nada. O que importa aqui é a aba de erros de sintaxe estar vazia.
 
-- [ ] Conferir se o `Person` bate com o LinkedIn: mesmo nome completo, mesma cidade, mesmos
+- [x] Conferir se o `Person` bate com o LinkedIn: mesmo nome completo, mesma cidade, mesmos
       cargos e datas. Divergência entre o site e o perfil enfraquece a consolidação da
       entidade — que é justamente o objetivo.
 
@@ -90,8 +90,8 @@ curl -s -o /dev/null -w "%{http_code}\n" https://imbrito.com.br/pagina-que-nao-e
 
 ## 4. Validar o HTML
 
-- [ ] <https://validator.w3.org/nu/?doc=https%3A%2F%2Fimbrito.com.br%2F>
-- [ ] Repetir para a 404: `https://imbrito.com.br/404.html`
+- [x] <https://validator.w3.org/nu/?doc=https%3A%2F%2Fimbrito.com.br%2F>
+- [x] Repetir para a 404: `https://imbrito.com.br/404.html`
 
 Esperado: zero erros. Avisos do tipo "Section lacks heading" não devem aparecer — todas as
 seções têm `aria-labelledby` apontando para um heading real.
@@ -104,20 +104,20 @@ Os validadores **cacheiam agressivamente**. Se você já compartilhou o link ant
 refatoração, o card velho (vazio) pode estar preso no cache por semanas — e os passos
 abaixo são a única forma de invalidar.
 
-- [ ] **LinkedIn Post Inspector** — <https://www.linkedin.com/post-inspector/>
+- [x] **LinkedIn Post Inspector** — <https://www.linkedin.com/post-inspector/>
 
       Cole `https://imbrito.com.br/` e clique em **"Inspect"**. Isso força o refetch. Você
       deve ver a imagem 1200×630 com seu nome, o título e a descrição. É o mais importante
       dos três: é onde recrutador clica.
 
-- [ ] **Facebook / WhatsApp Sharing Debugger** — <https://developers.facebook.com/tools/debug/>
+- [x] **Facebook / WhatsApp Sharing Debugger** — <https://developers.facebook.com/tools/debug/>
 
       O WhatsApp usa o mesmo cache do Facebook. Clique em **"Scrape Again"**.
 
-- [ ] **X / Twitter** — <https://cards-dev.twitter.com/validator> (exige login). Opcional:
+- [x] **X / Twitter** — <https://cards-dev.twitter.com/validator> (exige login). Opcional:
       não há handle configurado nas meta tags, porque você não me passou um.
 
-- [ ] Teste real: mande o link para você mesmo no WhatsApp e veja o card renderizar.
+- [x] Teste real: mande o link para você mesmo no WhatsApp e veja o card renderizar.
 
 ---
 
@@ -125,7 +125,7 @@ abaixo são a única forma de invalidar.
 
 Nada disso foi medido localmente. **A nota só existe contra a URL publicada.**
 
-- [ ] **PageSpeed Insights** — <https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fimbrito.com.br%2F>
+- [x] **PageSpeed Insights** — <https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fimbrito.com.br%2F>
 
       Rode **mobile e desktop**. Metas: 100 em Performance, Acessibilidade, Práticas
       recomendadas e SEO. LCP < 1,5 s, CLS < 0,05, TBT ~0.
@@ -135,10 +135,10 @@ Nada disso foi medido localmente. **A nota só existe contra a URL publicada.**
       chegar junto com o HTML — mas confirme na aba "Diagnóstico" se aparece
       "Ensure text remains visible during webfont load".
 
-- [ ] Se der 100/100/100/100 nos dois, **salve os prints**. É o baseline para detectar
+- [x] Se der 100/100/100/100 nos dois, **salve os prints**. É o baseline para detectar
       regressão depois de qualquer edição futura.
 
-- [ ] Opcional: <https://www.webpagetest.org> a partir de São Paulo, para ver a latência
+- [x] Opcional: <https://www.webpagetest.org> a partir de São Paulo, para ver a latência
       real do CDN do GitHub Pages para o Brasil.
 
 ---
@@ -148,7 +148,7 @@ Nada disso foi medido localmente. **A nota só existe contra a URL publicada.**
 O contraste já foi verificado programaticamente em todos os nós de texto (zero reprovações
 em WCAG AA). O que falta é o que só teste manual pega:
 
-- [ ] Navegar a página inteira **só com Tab**, sem mouse. O foco deve ser sempre visível
+- [x] Navegar a página inteira **só com Tab**, sem mouse. O foco deve ser sempre visível
       (contorno indigo) e a ordem deve ser: skip-link → marca → 4 links do menu → CONTATO →
       2 botões do hero → 3 botões de contato → 2 ícones do rodapé.
 - [ ] Pressionar Tab uma vez ao carregar: o link "Pular para o conteúdo principal" deve
@@ -181,7 +181,7 @@ for u in http://imbrito.com.br https://www.imbrito.com.br https://imbrito.github
 done
 ```
 
-- [ ] Em **Settings → Pages**, confirmar que "Enforce HTTPS" continua marcado.
+- [x] Em **Settings → Pages**, confirmar que "Enforce HTTPS" continua marcado.
 
 ---
 
@@ -191,7 +191,7 @@ done
       link de advisory que o `SECURITY.md` divulga retorna 404.
 - [ ] Preencher a descrição e o site do repositório (aparece na busca do GitHub e reforça
       o `sameAs` do JSON-LD).
-- [ ] Conferir se o perfil do GitHub aponta para `imbrito.com.br` e se o LinkedIn tem o site
+- [x] Conferir se o perfil do GitHub aponta para `imbrito.com.br` e se o LinkedIn tem o site
       no campo de website. `sameAs` é **bidirecional na prática**: os três apontando entre si
       é o que consolida a entidade.
 
