@@ -227,10 +227,10 @@
         {
           "@type": "ImageObject",
           "@id": "https://imbrito.com.br/#foto",
-          "url": "https://imbrito.com.br/assets/ismael-moreira-de-brito.jpg",
-          "contentUrl": "https://imbrito.com.br/assets/ismael-moreira-de-brito.jpg",
-          "width": 512,
-          "height": 512,
+          "url": "https://imbrito.com.br/assets/ismael-moreira-de-brito-448.jpg",
+          "contentUrl": "https://imbrito.com.br/assets/ismael-moreira-de-brito-448.jpg",
+          "width": 448,
+          "height": 448,
           "encodingFormat": "image/jpeg",
           "caption": "Ismael Moreira de Brito"
         },
@@ -298,6 +298,26 @@
         font-display: swap;
     }
 
+    /* Fallback com métricas casadas — NÃO REMOVER.
+       A Inter é ~6,8% mais larga que a Arial para o mesmo texto. Sem estes
+       ajustes, o parágrafo do hero renderizava em 4 linhas com a fonte de
+       sistema e 5 linhas com a Inter: no momento do swap, uma linha inteira
+       aparecia e empurrava 27px de conteúdo para baixo. Isso sozinho valia
+       CLS de 0,109 no PageSpeed mobile (medido em 30/07/2026), acima do
+       limite de 0,1 do Google, e custava os 4 pontos que faltavam para 100.
+       Com os overrides, o texto ocupa o mesmo espaço antes e depois do swap:
+       a quebra de linha não muda e nada se desloca.
+       Valores calculados contra a Arial; se trocar a fonte principal,
+       recalcule (razão de largura, ascent e descent sobre o em quadrado). */
+    @font-face {
+        font-family: 'Inter Fallback';
+        src: local('Arial'), local('Helvetica Neue'), local('Roboto');
+        size-adjust: 106.76%;
+        ascent-override: 90.86%;
+        descent-override: 22.48%;
+        line-gap-override: 0%;
+    }
+
     /* ═══════════════════════════════════════════════════════════
        Tokens
        ═══════════════════════════════════════════════════════════ */
@@ -324,7 +344,7 @@
         --hairline:      rgba(255, 255, 255, .05);
         --hairline-2:    rgba(255, 255, 255, .08);
 
-        --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        --sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         --mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
 
         --wrap:        72rem;   /* 1152px */
@@ -967,8 +987,15 @@
     <section class="hero" id="perfil" aria-labelledby="perfil-titulo">
         <div class="wrap hero-inner">
             <div class="avatar">
-                <img src="/assets/ismael-moreira-de-brito.jpg" width="512" height="512"
-                     alt="Ismael Moreira de Brito, engenheiro de dados e IA" fetchpriority="high" decoding="async">
+                <!-- Exibida a 112 CSS px. O srcset evita servir 448px para um
+                     aparelho de DPR 1,75, que precisa de 196px: o PageSpeed
+                     apontava 68,5 KB de 73,8 KB desperdiçados no arquivo único. -->
+                <img src="/assets/ismael-moreira-de-brito-224.jpg"
+                     srcset="/assets/ismael-moreira-de-brito-224.jpg 224w,
+                             /assets/ismael-moreira-de-brito-448.jpg 448w"
+                     sizes="112px" width="448" height="448"
+                     alt="Ismael Moreira de Brito, engenheiro de dados e IA"
+                     fetchpriority="high" decoding="async">
             </div>
             <p class="eyebrow">Data &amp; AI Engineer · Rio de Janeiro, Brasil</p>
             <h1 id="perfil-titulo">
