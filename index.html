@@ -1,262 +1,1333 @@
 <!DOCTYPE html>
-<html lang="pt-pt" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Engenheiro de Dados & Software | Portfólio">
-    <meta property="og:description" content="Especialista em ecossistemas de dados escaláveis e IA.">
-    <!-- <meta property="og:image" content="link-para-uma-foto-sua-ou-print-do-site.png"> -->
-    <title>Engenheiro de Dados & Software | Portfólio Profissional</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ismael Moreira de Brito — Engenheiro de Dados e IA | imbrito</title>
+    <meta name="description" content="Ismael Moreira de Brito, engenheiro de dados e IA no Mercado Livre; antes Globo.com e B2W Digital. BigQuery, Spark, Airflow, FinOps e LGPD. Rio de Janeiro.">
+    <link rel="canonical" href="https://imbrito.com.br/">
+    <meta name="author" content="Ismael Moreira de Brito">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#020617">
+    <meta name="color-scheme" content="dark">
+
+    <!-- O site é 100% self-contained: nenhum recurso de terceiro é carregado.
+         Esta política torna isso obrigatório em vez de acidental.
+         Se algum dia você adicionar um script/CDN externo, libere o host aqui antes. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+
+    <!-- Consolidação de identidade (rel=me) -->
+    <link rel="me" href="https://www.linkedin.com/in/imbrito">
+    <link rel="me" href="https://github.com/imbrito">
+
+    <!-- Open Graph — LinkedIn, WhatsApp, Facebook, Slack -->
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Ismael Moreira de Brito">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://imbrito.com.br/">
+    <meta property="og:title" content="Ismael Moreira de Brito — Engenheiro de Dados e IA">
+    <meta property="og:description" content="Ismael Moreira de Brito, Data &amp; AI Engineer no Mercado Livre. Construo produtos de dados para observabilidade, SRE analytics e FinOps. Antes: Globo.com e B2W Digital.">
+    <meta property="og:image" content="https://imbrito.com.br/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ismael Moreira de Brito — Data &amp; AI Engineer. Mercado Livre, Globo.com, B2W Digital. Rio de Janeiro, Brasil.">
+    <meta property="profile:first_name" content="Ismael">
+    <meta property="profile:last_name" content="Moreira de Brito">
+    <meta property="profile:username" content="imbrito">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ismael Moreira de Brito — Engenheiro de Dados e IA">
+    <meta name="twitter:description" content="Ismael Moreira de Brito, Data &amp; AI Engineer no Mercado Livre. Construo produtos de dados para observabilidade, SRE analytics e FinOps. Antes: Globo.com e B2W Digital.">
+    <meta name="twitter:image" content="https://imbrito.com.br/assets/og-image.png">
+    <meta name="twitter:image:alt" content="Ismael Moreira de Brito — Data &amp; AI Engineer. Mercado Livre, Globo.com, B2W Digital. Rio de Janeiro, Brasil.">
+
+    <!-- Ícones e manifest -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fontes auto-hospedadas: zero requisições a terceiros -->
+    <link rel="preload" href="/assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Dados estruturados: Person + ProfilePage + WebSite + ScholarlyArticle -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://imbrito.com.br/#person",
+          "name": "Ismael Moreira de Brito",
+          "givenName": "Ismael",
+          "familyName": "Moreira de Brito",
+          "alternateName": "imbrito",
+          "url": "https://imbrito.com.br/",
+          "mainEntityOfPage": { "@id": "https://imbrito.com.br/" },
+          "image": { "@id": "https://imbrito.com.br/#foto" },
+          "jobTitle": [
+            "Data & AI Engineer",
+            "Data & AI Architect",
+            "Analytics Engineer"
+          ],
+          "description": "Engenheiro de dados e IA baseado no Rio de Janeiro. Atuo no Mercado Livre com produtos de dados para observabilidade, SRE analytics e FinOps. Antes, na Globo.com, construí pipelines de eventos em tempo real e frameworks de adequação à LGPD em Data Lake; na B2W Digital, liderei tecnicamente a migração de Cloudera Hadoop on-premise para o Google Cloud Platform.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rio de Janeiro",
+            "addressRegion": "RJ",
+            "addressCountry": "BR"
+          },
+          "workLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Rio de Janeiro",
+              "addressRegion": "RJ",
+              "addressCountry": "BR"
+            }
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/imbrito",
+            "https://github.com/imbrito"
+          ],
+          "worksFor": [
+            {
+              "@type": "OrganizationRole",
+              "roleName": "Data & AI Engineer",
+              "startDate": "2022-08",
+              "description": "Produto de Data Intelligence para a plataforma interna Fury; observabilidade e SRE analytics (SLOs, gestão de alertas, postmortems); arquitetura de produtos de dados de billing e cost efficiency com atribuição de custos em escala de nuvem.",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Mercado Livre",
+                "url": "https://www.mercadolivre.com.br"
+              }
+            },
+            {
+              "@type": "OrganizationRole",
+              "roleName": "Data Engineer",
+              "startDate": "2020-01",
+              "endDate": "2022-07",
+              "description": "Pipelines de eventos em tempo real (streaming e batch) para Globoplay, G1, GE, Gshow e Cartola; infraestrutura analítica de Customer Journey (D2C) com integração ao Salesforce; frameworks de privacidade e adequação à LGPD em Data Lake, com anonimização em escala petabyte.",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Globo.com",
+                "url": "https://www.globo.com"
+              }
+            },
+            {
+              "@type": "OrganizationRole",
+              "roleName": "Data Engineer",
+              "startDate": "2018-05",
+              "endDate": "2019-12",
+              "description": "Liderança técnica na migração da plataforma de dados de Cloudera Hadoop on-premise para o Google Cloud Platform; arquitetura de dados na modernização do programa Prime; pipelines de eventos de marketplace (Offers, Items, Sellers, Sales, Customers) com Spark e Airflow.",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "B2W Digital"
+              }
+            }
+          ],
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Instituto Federal Fluminense",
+            "alternateName": "IFF"
+          },
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Bacharelado",
+            "name": "Bacharelado em Sistemas de Informação",
+            "educationalLevel": "Ensino superior",
+            "recognizedBy": {
+              "@type": "EducationalOrganization",
+              "name": "Instituto Federal Fluminense",
+              "alternateName": "IFF"
+            }
+          },
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Engenheiro de Dados",
+            "occupationLocation": {
+              "@type": "City",
+              "name": "Rio de Janeiro"
+            },
+            "skills": "Engenharia de dados, Analytics Engineering, arquitetura de dados, governança de dados, LGPD, FinOps, observabilidade, SRE analytics"
+          },
+          "knowsAbout": [
+            "Engenharia de Dados",
+            "Analytics Engineering",
+            "Arquitetura de Dados",
+            "Governança de Dados",
+            "LGPD",
+            "FinOps",
+            "Observabilidade",
+            "SRE Analytics",
+            "Big Data",
+            "Data Lake",
+            "Processamento de eventos em streaming",
+            "Google Cloud Platform",
+            "Google BigQuery",
+            "Apache Spark",
+            "Apache Airflow",
+            "dbt",
+            "Amazon Web Services",
+            "Kubernetes",
+            "Docker",
+            "Python",
+            "Java",
+            "SQL",
+            "Inteligência Artificial Generativa",
+            "Large Language Models"
+          ],
+          "knowsLanguage": {
+            "@type": "Language",
+            "name": "Português",
+            "alternateName": "pt-BR"
+          }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://imbrito.com.br/",
+          "url": "https://imbrito.com.br/",
+          "name": "Ismael Moreira de Brito — Engenheiro de Dados e IA",
+          "description": "Ismael Moreira de Brito, engenheiro de dados e IA no Mercado Livre; antes Globo.com e B2W Digital. BigQuery, Spark, Airflow, FinOps e LGPD. Rio de Janeiro.",
+          "inLanguage": "pt-BR",
+          "dateModified": "2026-07-30",
+          "isPartOf": { "@id": "https://imbrito.com.br/#website" },
+          "mainEntity": { "@id": "https://imbrito.com.br/#person" },
+          "about": { "@id": "https://imbrito.com.br/#person" },
+          "primaryImageOfPage": { "@id": "https://imbrito.com.br/#primaryimage" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://imbrito.com.br/#website",
+          "url": "https://imbrito.com.br/",
+          "name": "Ismael Moreira de Brito",
+          "alternateName": "imbrito",
+          "description": "Site pessoal e portfólio profissional de Ismael Moreira de Brito, engenheiro de dados e IA no Rio de Janeiro.",
+          "inLanguage": "pt-BR",
+          "publisher": { "@id": "https://imbrito.com.br/#person" },
+          "creator": { "@id": "https://imbrito.com.br/#person" },
+          "copyrightHolder": { "@id": "https://imbrito.com.br/#person" }
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://imbrito.com.br/#primaryimage",
+          "url": "https://imbrito.com.br/assets/og-image.png",
+          "contentUrl": "https://imbrito.com.br/assets/og-image.png",
+          "width": 1200,
+          "height": 630,
+          "encodingFormat": "image/png",
+          "caption": "Ismael Moreira de Brito — Data & AI Engineer. Mercado Livre, Globo.com, B2W Digital. Rio de Janeiro, Brasil."
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://imbrito.com.br/#foto",
+          "url": "https://imbrito.com.br/assets/ismael-moreira-de-brito.jpg",
+          "contentUrl": "https://imbrito.com.br/assets/ismael-moreira-de-brito.jpg",
+          "width": 512,
+          "height": 512,
+          "encodingFormat": "image/jpeg",
+          "caption": "Ismael Moreira de Brito"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://imbrito.com.br/#publicacao-electre-tri",
+          "name": "Um Microservice de Apoio à Tomada de Decisão, Baseado no Algoritmo ELECTRE TRI",
+          "headline": "Um Microservice de Apoio à Tomada de Decisão, Baseado no Algoritmo ELECTRE TRI",
+          "url": "https://www.abepro.org.br/biblioteca/TN_STO_263_510_35412.pdf",
+          "inLanguage": "pt-BR",
+          "datePublished": "2018-10",
+          "author": [
+            { "@id": "https://imbrito.com.br/#person" },
+            { "@type": "Person", "name": "Kíssila da Silva Ventura" },
+            { "@type": "Person", "name": "Vinicius Barcelos da Silva" }
+          ],
+          "publisher": {
+            "@type": "Organization",
+            "name": "ABEPRO — Associação Brasileira de Engenharia de Produção",
+            "url": "https://www.abepro.org.br"
+          },
+          "publication": {
+            "@type": "PublicationEvent",
+            "name": "XXXVIII Encontro Nacional de Engenharia de Produção (ENEGEP)",
+            "startDate": "2018-10-16",
+            "endDate": "2018-10-19",
+            "location": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Maceió",
+                "addressRegion": "AL",
+                "addressCountry": "BR"
+              }
+            }
+          },
+          "keywords": ["ELECTRE TRI", "microservice", "Auxílio Multicritério à Decisão"],
+          "about": [
+            "Sistemas de apoio à decisão",
+            "ELECTRE TRI",
+            "Microservices",
+            "Pesquisa Operacional"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap');
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #020617; 
-        }
-        
-        .mono { font-family: 'Fira Code', monospace; }
-        
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.12) 0%, rgba(2, 6, 23, 0) 60%);
-        }
+    /* ═══════════════════════════════════════════════════════════
+       Fontes — auto-hospedadas, variáveis, subset latin
+       ═══════════════════════════════════════════════════════════ */
+    @font-face {
+        font-family: 'Inter';
+        src: url('/assets/fonts/inter-latin-var.woff2') format('woff2');
+        font-weight: 300 800;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Fira Code';
+        src: url('/assets/fonts/fira-code-latin-var.woff2') format('woff2');
+        font-weight: 300 700;
+        font-style: normal;
+        font-display: swap;
+    }
 
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    /* ═══════════════════════════════════════════════════════════
+       Tokens
+       ═══════════════════════════════════════════════════════════ */
+    :root {
+        --bg:            #020617;
+        --bg-alt:        #050a1c;
+        --surface:       rgba(15, 23, 42, .6);
+        --surface-solid: #182234;
 
-        .glass-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-4px);
-        }
+        --text:          #cbd5e1;
+        --text-dim:      #94a3b8;
+        --text-faint:    #7c8ba1;  /* 5,69:1 — mínimo que passa AA em texto pequeno */
+        --text-muted:    #64748b;  /* 4,24:1 — só para texto grande em negrito (min 3:1) */
+        --white:         #fff;
 
-        .skill-badge {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            color: #a5b4fc;
-            font-family: 'Fira Code', monospace;
-        }
+        --accent:        #6366f1;
+        --accent-strong: #4f46e5;
+        --accent-hover:  #4338ca;
+        --accent-light:  #818cf8;
+        --accent-soft:   #a5b4fc;
+        --emerald:       #34d399;
+        --amber:         #fbbf24;
 
-        .nav-blur {
-            backdrop-filter: blur(8px);
-            background: rgba(2, 6, 23, 0.85);
-        }
+        --hairline:      rgba(255, 255, 255, .05);
+        --hairline-2:    rgba(255, 255, 255, .08);
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        --mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+        --wrap:        72rem;   /* 1152px */
+        --wrap-narrow: 56rem;   /* 896px  */
+        --gutter:      1.5rem;
+        --nav-h:       4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Reset
+       ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-size: 1rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, ul, ol, figure { margin: 0; }
+    ul, ol { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    strong { font-weight: 600; color: var(--white); }
+    svg { display: block; }
+
+    ::selection { background: rgba(99, 102, 241, .3); }
+
+    /* ═══════════════════════════════════════════════════════════
+       Acessibilidade
+       ═══════════════════════════════════════════════════════════ */
+    .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -100%;
+        z-index: 100;
+        padding: .75rem 1.25rem;
+        border-radius: .5rem;
+        background: var(--accent-strong);
+        color: var(--white);
+        font-size: .875rem;
+        font-weight: 700;
+        transition: top .2s ease-out;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 2px solid var(--accent-soft);
+        outline-offset: 3px;
+        border-radius: .375rem;
+    }
+    main:focus { outline: none; }
+
+    /* Âncoras não podem aterrissar atrás do cabeçalho fixo */
+    section[id] { scroll-margin-top: 7rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       Utilitários de layout
+       ═══════════════════════════════════════════════════════════ */
+    .wrap {
+        width: 100%;
+        max-width: var(--wrap);
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+    }
+    .wrap--narrow { max-width: var(--wrap-narrow); }
+
+    .section { padding-block: 6rem; }
+    .section--alt { background: var(--bg-alt); }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -.02em;
+        color: var(--white);
+    }
+    .section-title::before {
+        content: '';
+        flex: none;
+        width: 2rem;
+        height: 1px;
+        background: var(--accent);
+    }
+
+    .mono { font-family: var(--mono); }
+
+    /* ═══════════════════════════════════════════════════════════
+       Cabeçalho e navegação
+       ═══════════════════════════════════════════════════════════ */
+    .site-header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        background: rgba(2, 6, 23, .85);
+        border-bottom: 1px solid var(--hairline);
+    }
+    @supports (backdrop-filter: blur(8px)) {
+        .site-header { backdrop-filter: blur(8px); }
+    }
+
+    .nav-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: .75rem 1rem;
+        padding-block: .75rem;
+    }
+
+    .brand {
+        order: 1;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        font-family: var(--mono);
+        font-weight: 700;
+        letter-spacing: -.05em;
+        color: var(--white);
+    }
+    .brand svg { border-radius: .25rem; }
+
+    .nav-list {
+        order: 3;
+        display: flex;
+        justify-content: center;
+        gap: .75rem;
+        width: 100%;
+        font-size: .625rem;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+    }
+    .nav-list a { transition: color .25s; }
+    .nav-list a:hover { color: var(--accent-light); }
+
+    .nav-cta {
+        order: 2;
+        padding: .5rem 1rem;
+        border: 1px solid rgba(99, 102, 241, .5);
+        border-radius: .25rem;
+        font-size: .75rem;
+        font-weight: 700;
+        color: var(--accent-light);
+        transition: background-color .25s, color .25s;
+    }
+    .nav-cta:hover { background: var(--accent-strong); color: var(--white); }
+
+    @media (min-width: 768px) {
+        .nav-inner { flex-wrap: nowrap; height: var(--nav-h); padding-block: 0; }
+        .nav-list  { order: 2; width: auto; gap: 2rem; font-size: .75rem; letter-spacing: .1em; }
+        .nav-cta   { order: 3; }
+        section[id] { scroll-margin-top: 5rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Hero
+       ═══════════════════════════════════════════════════════════ */
+    .hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+        overflow: hidden;
+        text-align: center;
+        background-image: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, .12) 0%, rgba(2, 6, 23, 0) 60%);
+    }
+    @supports (min-height: 100svh) {
+        .hero { min-height: 100svh; }
+    }
+    @media (min-width: 768px) {
+        .hero { padding-top: 5rem; }
+    }
+
+    .hero-inner { max-width: 64rem; margin-inline: auto; }
+
+    .avatar {
+        width: 7rem;
+        height: 7rem;
+        margin: 0 auto 1.75rem;
+        border-radius: 50%;
+        border: 1px solid rgba(99, 102, 241, .35);
+        padding: 4px;
+        background: rgba(15, 23, 42, .6);
+        box-shadow: 0 0 32px rgba(79, 70, 229, .18);
+    }
+    .avatar img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .eyebrow {
+        margin-bottom: 1.5rem;
+        font-family: var(--mono);
+        font-size: .875rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent-light);
+    }
+
+    .hero h1 {
+        margin-bottom: 2rem;
+        letter-spacing: -.03em;
+        line-height: 1.1;
+    }
+    .hero-name {
+        display: block;
+        font-size: clamp(2.25rem, 7.5vw, 4.5rem);
+        font-weight: 800;
+        color: var(--white);
+    }
+    .hero-role {
+        display: block;
+        margin-top: .75rem;
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        font-weight: 800;
+        color: var(--accent);
+    }
+
+    .hero-lead {
+        max-width: 48rem;
+        margin: 0 auto 2.5rem;
+        font-size: 1rem;
+        color: var(--text-dim);
+        line-height: 1.7;
+    }
+    @media (min-width: 768px) {
+        .hero-lead { font-size: 1.125rem; }
+    }
+
+    .logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -.05em;
+        color: var(--text-muted);
+    }
+    .logos li:nth-child(2) { font-style: italic; }
+    @media (min-width: 768px) {
+        .logos { gap: 4rem; }
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Botões
+       ═══════════════════════════════════════════════════════════ */
+    .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        font-weight: 700;
+        color: var(--white);
+        transition: background-color .25s, border-color .25s;
+    }
+    .btn--primary { background: var(--accent-strong); border: 1px solid var(--accent-strong); }
+    .btn--primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+    .btn--ghost { background: rgba(30, 41, 59, .5); border: 1px solid var(--hairline); }
+    .btn--ghost:hover { background: #334155; }
+
+    /* ═══════════════════════════════════════════════════════════
+       Prosa
+       ═══════════════════════════════════════════════════════════ */
+    .prose {
+        max-width: 48rem;
+        margin-bottom: 4rem;
+        color: var(--text-dim);
+        line-height: 1.75;
+    }
+    .prose p + p { margin-top: 1.5rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       Cards de vidro
+       ═══════════════════════════════════════════════════════════ */
+    .cards {
+        display: grid;
+        gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+        .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .card {
+        padding: 2rem;
+        border: 1px solid var(--hairline);
+        border-radius: 1rem;
+        background: var(--surface);
+        transition: border-color .3s cubic-bezier(.4, 0, .2, 1), transform .3s cubic-bezier(.4, 0, .2, 1);
+    }
+    @supports (backdrop-filter: blur(12px)) {
+        .card { backdrop-filter: blur(12px); }
+    }
+    .card:hover {
+        border-color: rgba(99, 102, 241, .4);
+        transform: translateY(-4px);
+    }
+    .card h3 {
+        margin-bottom: .75rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--white);
+    }
+    .card p { font-size: .875rem; color: var(--text-dim); }
+
+    .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1.5rem;
+        border-radius: .75rem;
+        background: rgba(99, 102, 241, .1);
+        color: var(--accent-light);
+    }
+    .card-icon--emerald { background: rgba(52, 211, 153, .1); color: var(--emerald); }
+    .card-icon--amber   { background: rgba(251, 191, 36, .1);  color: var(--amber); }
+
+    .card-link {
+        display: inline;
+        text-decoration-line: underline;
+        text-decoration-color: rgba(129, 140, 248, .35);
+        text-underline-offset: 3px;
+        transition: text-decoration-color .25s;
+    }
+    .card-link:hover { text-decoration-color: var(--accent-light); }
+    .card-link-icon {
+        display: inline-block;
+        vertical-align: baseline;
+        margin-left: .2rem;
+        color: var(--accent-light);
+    }
+    .card-link-icon svg { display: inline-block; }
+
+    .card-kicker {
+        margin-bottom: 1rem;
+        font-family: var(--mono);
+        font-size: .625rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Timeline de experiência
+       ═══════════════════════════════════════════════════════════ */
+    .timeline { display: grid; gap: 4rem; }
+
+    .job {
+        position: relative;
+        padding-left: 3rem;
+        border-left: 1px solid #1e293b;
+    }
+    .job::before {
+        content: '';
+        position: absolute;
+        left: -6.5px;
+        top: .375rem;
+        width: .75rem;
+        height: .75rem;
+        border-radius: 50%;
+        background: #334155;
+    }
+    .job--current::before {
+        background: var(--accent);
+        box-shadow: 0 0 10px rgba(99, 102, 241, .5);
+    }
+
+    .job-head {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 1.25rem;
+    }
+    .job-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -.02em;
+        color: var(--white);
+    }
+    .job-org {
+        font-family: var(--mono);
+        font-size: .875rem;
+        font-weight: 500;
+        color: var(--accent-light);
+    }
+    .job-meta {
+        flex: none;
+        font-family: var(--mono);
+        font-size: .75rem;
+        color: var(--text-dim);
+    }
+    .job-meta span { color: var(--text-faint); }
+
+    @media (min-width: 768px) {
+        .job-head { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+        .job-meta { text-align: right; }
+    }
+
+    .job-list {
+        margin-bottom: 1.5rem;
+        padding-left: 1.25rem;
+        list-style: disc;
+        font-size: .875rem;
+        color: var(--text-dim);
+    }
+    .job-list li::marker { color: var(--accent); }
+    .job-list li + li { margin-top: .5rem; }
+
+    /* ═══════════════════════════════════════════════════════════
+       Badges
+       ═══════════════════════════════════════════════════════════ */
+    .badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+    .badge {
+        padding: .25rem .75rem;
+        border: 1px solid rgba(99, 102, 241, .2);
+        border-radius: .375rem;
+        background: rgba(30, 41, 59, .8);
+        font-family: var(--mono);
+        font-size: .7rem;
+        line-height: 1.6;
+        color: var(--accent-soft);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Stack
+       ═══════════════════════════════════════════════════════════ */
+    .stack-card {
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        border: 1px solid var(--hairline);
+        border-radius: 2rem;
+        background: var(--surface);
+    }
+    @supports (backdrop-filter: blur(12px)) {
+        .stack-card { backdrop-filter: blur(12px); }
+    }
+    @media (min-width: 768px) {
+        .stack-card { padding: 3rem; }
+    }
+    .stack-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 16rem;
+        height: 16rem;
+        background: rgba(99, 102, 241, .05);
+        filter: blur(100px);
+        pointer-events: none;
+    }
+    .stack-inner { position: relative; z-index: 1; }
+
+    .stack-card h2 {
+        margin-bottom: 1rem;
+        font-size: 1.875rem;
+        font-weight: 700;
+        letter-spacing: -.02em;
+        color: var(--white);
+    }
+    .stack-lead {
+        max-width: 42rem;
+        margin-bottom: 2.5rem;
+        font-size: .875rem;
+        color: var(--text-dim);
+    }
+
+    .stack-grid {
+        display: grid;
+        gap: 2.5rem 2rem;
+    }
+    @media (min-width: 640px) {
+        .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+        .stack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .stack-group h3 {
+        margin-bottom: 1rem;
+        font-family: var(--mono);
+        font-size: .625rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent-light);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Contato e rodapé
+       ═══════════════════════════════════════════════════════════ */
+    .contact {
+        padding-block: 6rem;
+        border-top: 1px solid var(--hairline);
+        text-align: center;
+    }
+    .contact h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -.02em;
+        color: var(--white);
+    }
+    .contact-lead {
+        max-width: 32rem;
+        margin: 0 auto 2.5rem;
+        font-size: .875rem;
+        color: var(--text-dim);
+    }
+    .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .site-footer { padding-bottom: 5rem; text-align: center; }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    .social a {
+        display: inline-flex;
+        color: var(--text-dim);
+        transition: color .25s;
+    }
+    .social a:hover { color: var(--white); }
+
+    .copyright {
+        font-family: var(--mono);
+        font-size: .625rem;
+        letter-spacing: .3em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Revelação ao rolar — só quando há JS, para não esconder
+       conteúdo de quem não executa scripts (inclusive crawlers)
+       ═══════════════════════════════════════════════════════════ */
+    .js .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       Movimento reduzido
+       ═══════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+            animation-duration: .01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: .01ms !important;
         }
-        .reveal { animation: fadeIn 0.8s ease-out forwards; }
+        .card:hover { transform: none; }
+        .js .reveal { opacity: 1; transform: none; }
+    }
     </style>
+    <script>document.documentElement.classList.add('js');</script>
 </head>
-<body class="text-slate-300 selection:bg-indigo-500/30">
 
-    <!-- Navegação -->
-    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div href="#" class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-600/20">#</div>
-                <span href="#" class="mono font-bold text-white tracking-tighter">IMBRITO</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
-                <a href="#perfil" class="hover:text-indigo-400 transition-colors">Perfil</a>
-                <a href="#dominios" class="hover:text-indigo-400 transition-colors">Domínios</a>
-                <a href="#trajetoria" class="hover:text-indigo-400 transition-colors">Trajetória</a>
-                <a href="#stack" class="hover:text-indigo-400 transition-colors">Stack</a>
-            </div>
-            <a href="mailto:imbrito1986@gmail.com" class="border border-indigo-500/50 text-indigo-400 px-4 py-2 rounded text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all">
-                CONTATO
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <header class="site-header">
+        <nav class="wrap nav-inner" aria-label="Navegação principal">
+            <a class="brand" href="#perfil" aria-label="Ismael Moreira de Brito — início">
+                <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <rect width="32" height="32" rx="7" fill="#4f46e5"/>
+                    <g fill="#fff">
+                        <rect x="5.6" y="11.3" width="20.8" height="3.2" rx="1.3"/>
+                        <rect x="5.6" y="17.5" width="20.8" height="3.2" rx="1.3"/>
+                        <g transform="translate(2.25 0) skewX(-8)">
+                            <rect x="9.9" y="5.6" width="3.2" height="20.8" rx="1.3"/>
+                            <rect x="18.5" y="5.6" width="3.2" height="20.8" rx="1.3"/>
+                        </g>
+                    </g>
+                </svg>
+                <span>IMBRITO</span>
             </a>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="perfil" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-gradient">
-        <div class="max-w-5xl mx-auto px-6 text-center reveal">
-            <h2 class="mono text-indigo-400 text-sm mb-6 tracking-widest uppercase opacity-80">Construindo Ecossistemas de Dados Escaláveis</h2>
-            <h1 class="text-4xl md:text-7xl font-black text-white mb-8 tracking-tight leading-tight">
-                Transformando Petabytes em <span class="text-indigo-500">Ativos Estratégicos.</span>
+            <ul class="nav-list">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#formacao">Formação</a></li>
+            </ul>
+
+            <a class="nav-cta" href="#contato">CONTATO</a>
+        </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+
+    <!-- ═══ Hero ═══ -->
+    <section class="hero" id="perfil" aria-labelledby="perfil-titulo">
+        <div class="wrap hero-inner">
+            <div class="avatar">
+                <img src="/assets/ismael-moreira-de-brito.jpg" width="512" height="512"
+                     alt="Ismael Moreira de Brito, engenheiro de dados e IA" fetchpriority="high" decoding="async">
+            </div>
+            <p class="eyebrow">Data &amp; AI Engineer · Rio de Janeiro, Brasil</p>
+            <h1 id="perfil-titulo">
+                <span class="hero-name">Ismael Moreira de Brito</span>
+                <span class="hero-role">Engenheiro de Dados e IA.</span>
             </h1>
-            <p class="text-base md:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10">
-                Engenheiro de Dados e Software com sólida trajetória em gigantes como <span class="text-white font-semibold">Mercado Livre, Globo e B2W</span>. Unindo o rigor da Engenharia de Software à agilidade da Analytics Engineering e Gen AI.
+            <p class="hero-lead">
+                Construo plataformas de dados que transformam log de sistema, evento de produto e fatura de nuvem em decisão. Hoje no <strong>Mercado Livre</strong>; antes, <strong>Globo.com</strong> e <strong>B2W Digital</strong>.
             </p>
-            
-            <!-- Marcas/Empresas -->
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 mb-12">
-                <span class="text-xl font-bold tracking-tighter">MERCADO LIVRE</span>
-                <span class="text-xl font-bold tracking-tighter italic">GLOBO</span>
-                <span class="text-xl font-bold tracking-tighter">B2W DIGITAL</span>
-            </div>
 
-            <div class="flex justify-center gap-4">
-                <a href="#trajetoria" class="bg-indigo-600 px-8 py-4 rounded-lg font-bold text-white hover:bg-indigo-700 transition-all">
-                    Explorar Trajetória
-                </a>
-                <a href="#stack" class="bg-slate-800/50 border border-white/5 px-8 py-4 rounded-lg font-bold text-white hover:bg-slate-700 transition-all">
-                    Tech Stack
-                </a>
+            <ul class="logos" aria-label="Empresas onde atuei">
+                <li>MERCADO LIVRE</li>
+                <li>GLOBO.COM</li>
+                <li>B2W DIGITAL</li>
+            </ul>
+
+            <div class="hero-actions">
+                <a class="btn btn--primary" href="#experiencia">Ver experiência</a>
+                <a class="btn btn--ghost" href="#stack">Stack técnica</a>
             </div>
         </div>
     </section>
 
-    <!-- Domínios de Atuação -->
-    <section id="dominios" class="py-24 max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 text-indigo-500">
-                    <i class="fas fa-microchip text-xl"></i>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-3">Software Engineering</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Aplicação de rigor técnico como Java, Python e TDD para garantir pipelines resilientes e código de alta manutenibilidade.
+    <!-- ═══ Sobre ═══ -->
+    <section class="section" id="sobre" aria-labelledby="sobre-titulo">
+        <div class="wrap">
+            <h2 class="section-title" id="sobre-titulo">Sobre</h2>
+
+            <div class="prose">
+                <p>
+                    Sou engenheiro de dados e IA, moro no Rio de Janeiro e trabalho no Mercado Livre desde agosto de 2022. Meu escopo lá é um produto de Data Intelligence para o <strong>Fury</strong>, a plataforma interna de desenvolvimento da empresa: ele converte logs e métricas de sistema em insumo para decidir como a infraestrutura global deve evoluir.
+                </p>
+                <p>
+                    Duas frentes ocupam a maior parte do meu tempo. A primeira é observabilidade e SRE analytics — pipelines e dashboards que sustentam o monitoramento de serviços críticos: SLOs, adoption rate, gestão de alertas, postmortems e war rooms. A segunda é FinOps: arquitetura de produtos de dados de billing e cost efficiency, com modelos de atribuição de custo em escala de nuvem, para que cada unidade de negócio veja o que gasta e por quê.
+                </p>
+                <p>
+                    Antes disso passei dois anos e meio na Globo.com, construindo pipelines de eventos em tempo real para Globoplay, G1, GE, Gshow e Cartola, e frameworks de anonimização em Data Lake para adequação à LGPD em escala petabyte. E antes, na B2W Digital, liderei tecnicamente a migração de um Cloudera Hadoop on-premise para o Google Cloud Platform. O que se repete nas três é o mesmo problema: dado bruto de infraestrutura e de produto não vira decisão sozinho — alguém precisa construir a plataforma no meio.
                 </p>
             </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-emerald-500">
-                    <i class="fas fa-brain text-xl"></i>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-3">AI Productivity</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Integração de Gen AI e LLMs no fluxo de desenvolvimento (Copilot, Prompting) para acelerar entregas e automação de SQL/Python.
-                </p>
-            </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 text-amber-500">
-                    <i class="fas fa-shield-halved text-xl"></i>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-3">Governance & FinOps</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Foco em Data Readiness, Compliance (LGPD) e monitorização de métricas críticas (SLOs e custos de infraestrutura).
-                </p>
+
+            <div class="cards">
+                <article class="card reveal">
+                    <div class="card-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 14 3.5-3.5 3 3L20 7"/>
+                        </svg>
+                    </div>
+                    <h3>Observabilidade e SRE Analytics</h3>
+                    <p>Pipelines e dashboards para monitoramento de serviços críticos: definição e acompanhamento de SLOs, adoption rate, gestão de alertas, postmortems e war rooms.</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon card-icon--emerald" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                        </svg>
+                    </div>
+                    <h3>FinOps e eficiência de custos</h3>
+                    <p>Produtos de dados de billing e cost efficiency, com modelos de atribuição de custo em escala de nuvem e transparência financeira por unidade de negócio.</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon card-icon--amber" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Governança de dados e LGPD</h3>
+                    <p>Frameworks de compliance e privacidade em Data Lake, com automações de adequação à LGPD e anonimização em escala petabyte.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Trajetória Profissional -->
-    <section id="trajetoria" class="py-24 bg-slate-950/50">
-        <div class="max-w-4xl mx-auto px-6">
-            <h3 class="text-2xl font-bold text-white mb-16 flex items-center gap-4">
-                <span class="w-8 h-[1px] bg-indigo-500"></span> Trajetória Profissional
-            </h3>
-            
-            <div class="space-y-16">
-                <div class="relative pl-12 border-l border-slate-800">
-                    <div class="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[6.5px] top-1.5 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between items-start md:items-center mb-4">
+    <!-- ═══ Experiência ═══ -->
+    <section class="section section--alt" id="experiencia" aria-labelledby="experiencia-titulo">
+        <div class="wrap wrap--narrow">
+            <h2 class="section-title" id="experiencia-titulo">Experiência</h2>
+
+            <div class="timeline">
+
+                <article class="job job--current reveal">
+                    <div class="job-head">
                         <div>
-                            <h4 class="text-xl font-bold text-white tracking-tight">Especialista em Ecossistemas de Dados</h4>
-                            <p class="text-indigo-400 mono text-sm font-medium">Mercado Livre / Globo / B2W</p>
+                            <h3 class="job-title">Data &amp; AI Engineer</h3>
+                            <p class="job-org">Mercado Livre</p>
                         </div>
-                        <span class="text-slate-500 text-xs font-bold mt-2 md:mt-0">SENIOR / STAFF ROLE</span>
+                        <p class="job-meta">
+                            <time datetime="2022-08">ago/2022</time> – atual<br>
+                            <span>Rio de Janeiro, Brasil</span>
+                        </p>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Liderança técnica em projetos de migração On-premise para Cloud, arquitetura de Analytics Engineering e implementação de governança de dados em escala petabyte. Foco em converter desafios complexos de engenharia em soluções sustentáveis que garantem escala e rentabilidade.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">GCP BigQuery</span>
-                        <span class="skill-badge">Dataflow</span>
-                        <span class="skill-badge">Analytics Engineering</span>
-                        <span class="skill-badge">Compliance LGPD</span>
-                    </div>
-                </div>
+                    <ul class="job-list">
+                        <li>Produto de Data Intelligence para o Fury, plataforma interna de desenvolvimento do Mercado Livre: converte logs e métricas de sistema em insumo para a evolução da infraestrutura global.</li>
+                        <li>Observabilidade e SRE analytics: pipelines e dashboards para monitoramento de serviços críticos — SLOs, adoption rate, gestão de alertas, postmortems e war rooms.</li>
+                        <li>FinOps: arquitetura de produtos de dados de billing e cost efficiency, com modelos de atribuição de custo em escala de nuvem.</li>
+                        <li>Transparência financeira por unidade de negócio como insumo para decisão executiva.</li>
+                    </ul>
+                    <ul class="badges">
+                        <li class="badge">SLO</li>
+                        <li class="badge">Observabilidade</li>
+                        <li class="badge">SRE Analytics</li>
+                        <li class="badge">FinOps</li>
+                        <li class="badge">Billing</li>
+                        <li class="badge">Cost Efficiency</li>
+                    </ul>
+                </article>
 
-                <div class="relative pl-12 border-l border-slate-800">
-                    <div class="absolute w-3 h-3 bg-slate-700 rounded-full -left-[6.5px] top-1.5"></div>
-                    <div class="mb-4">
-                        <h4 class="text-xl font-bold text-white tracking-tight">Mentor Técnico & Líder de Engenharia</h4>
-                        <p class="text-slate-500 mono text-sm">Metodologias Ágeis & Times de Alta Performance</p>
+                <article class="job reveal">
+                    <div class="job-head">
+                        <div>
+                            <h3 class="job-title">Data Engineer</h3>
+                            <p class="job-org">Globo.com</p>
+                        </div>
+                        <p class="job-meta">
+                            <time datetime="2020-01">jan/2020</time> – <time datetime="2022-07">jul/2022</time><br>
+                            <span>Rio de Janeiro, Brasil</span>
+                        </p>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Atuação como mentor de equipas técnicas, disseminando práticas de CI/CD, TDD e cultura Data-driven para acelerar o tempo de resposta do negócio às demandas de análise avançada.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Agile</span>
-                        <span class="skill-badge">CI/CD</span>
-                        <span class="skill-badge">Software Engineer</span>
+                    <ul class="job-list">
+                        <li>Pipelines de eventos em tempo real, streaming e batch, para Globoplay, G1, GE, Gshow e Cartola, com volumes massivos de eventos web.</li>
+                        <li>Infraestrutura analítica de Customer Journey (D2C) e integração com Salesforce para unificação de perfis e ativação de audiências.</li>
+                        <li>Frameworks de compliance e privacidade em Data Lake: automações de adequação à LGPD com anonimização em escala petabyte.</li>
+                        <li>Liderança técnica e mentoria de engenheiros e estagiários.</li>
+                    </ul>
+                    <ul class="badges">
+                        <li class="badge">Streaming</li>
+                        <li class="badge">Data Lake</li>
+                        <li class="badge">LGPD</li>
+                        <li class="badge">Salesforce</li>
+                        <li class="badge">D2C</li>
+                        <li class="badge">Customer Journey</li>
+                    </ul>
+                </article>
+
+                <article class="job reveal">
+                    <div class="job-head">
+                        <div>
+                            <h3 class="job-title">Data Engineer</h3>
+                            <p class="job-org">B2W Digital</p>
+                        </div>
+                        <p class="job-meta">
+                            <time datetime="2018-05">mai/2018</time> – <time datetime="2019-12">dez/2019</time><br>
+                            <span>São Paulo, SP</span>
+                        </p>
+                    </div>
+                    <ul class="job-list">
+                        <li>Liderança técnica na migração da plataforma de dados de Cloudera Hadoop on-premise para o Google Cloud Platform.</li>
+                        <li>Arquitetura de dados na modernização do programa Prime, em vendas e delivery.</li>
+                        <li>Pipelines de processamento de eventos de marketplace: Offers, Items, Sellers, Sales e Customers.</li>
+                        <li>Adoção de Spark e Airflow no ecossistema GCP.</li>
+                    </ul>
+                    <ul class="badges">
+                        <li class="badge">Migração Cloud</li>
+                        <li class="badge">Cloudera Hadoop</li>
+                        <li class="badge">GCP</li>
+                        <li class="badge">Marketplace</li>
+                        <li class="badge">Spark</li>
+                        <li class="badge">Airflow</li>
+                    </ul>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Stack ═══ -->
+    <section class="section" id="stack" aria-labelledby="stack-titulo">
+        <div class="wrap">
+            <div class="stack-card reveal">
+                <div class="stack-inner">
+                    <h2 id="stack-titulo">Stack técnica.</h2>
+                    <p class="stack-lead">Ferramentas com que trabalho em produção, agrupadas pelo papel que cumprem.</p>
+
+                    <div class="stack-grid">
+                        <div class="stack-group">
+                            <h3>Linguagens</h3>
+                            <ul class="badges">
+                                <li class="badge">Python</li>
+                                <li class="badge">Java</li>
+                                <li class="badge">SQL</li>
+                            </ul>
+                        </div>
+                        <div class="stack-group">
+                            <h3>Dados</h3>
+                            <ul class="badges">
+                                <li class="badge">Spark</li>
+                                <li class="badge">Airflow</li>
+                                <li class="badge">dbt</li>
+                                <li class="badge">BigQuery</li>
+                                <li class="badge">Dataflow</li>
+                            </ul>
+                        </div>
+                        <div class="stack-group">
+                            <h3>Cloud e infraestrutura</h3>
+                            <ul class="badges">
+                                <li class="badge">GCP</li>
+                                <li class="badge">AWS</li>
+                                <li class="badge">Docker</li>
+                                <li class="badge">Kubernetes</li>
+                                <li class="badge">CI/CD</li>
+                            </ul>
+                        </div>
+                        <div class="stack-group">
+                            <h3>Domínios</h3>
+                            <ul class="badges">
+                                <li class="badge">Big Data</li>
+                                <li class="badge">Analytics Engineering</li>
+                                <li class="badge">Arquitetura de Dados</li>
+                                <li class="badge">Governança de Dados</li>
+                                <li class="badge">LGPD</li>
+                                <li class="badge">FinOps</li>
+                            </ul>
+                        </div>
+                        <div class="stack-group">
+                            <h3>IA aplicada</h3>
+                            <ul class="badges">
+                                <li class="badge">Gen AI</li>
+                                <li class="badge">LLMs</li>
+                                <li class="badge">GitHub Copilot</li>
+                                <li class="badge">Prompting para SQL e Python</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tech Stack Grid -->
-    <section id="stack" class="py-24 max-w-6xl mx-auto px-6">
-        <div class="glass-card p-12 rounded-[2rem] overflow-hidden relative">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600/5 blur-[100px]"></div>
-            <div class="relative z-10 grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-3xl font-bold text-white mb-6 leading-tight">Linguagens & <br>Infraestrutura.</h3>
-                    <p class="text-slate-400 text-sm mb-8">Base sólida em stacks modernas para garantir que os dados estejam preparados para sustentar modelos de IA.</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Python</span>
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Java</span>
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">SQL</span>
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Spark</span>
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">Airflow</span>
-                        <span class="px-3 py-1 bg-slate-800 text-white rounded text-xs font-bold">dbt</span>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-8 border-l border-white/5 pl-0 md:pl-12">
-                    <div>
-                        <h5 class="text-indigo-400 mono text-[10px] uppercase mb-4 tracking-widest font-bold">Cloud & Ops</h5>
-                        <ul class="text-sm text-slate-300 space-y-2">
-                            <li>GCP (BigQuery)</li>
-                            <li>AWS</li>
-                            <li>Kubernetes</li>
-                            <li>Docker</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 class="text-indigo-400 mono text-[10px] uppercase mb-4 tracking-widest font-bold">Domínios</h5>
-                        <ul class="text-sm text-slate-300 space-y-2">
-                            <li>Big Data Architecture</li>
-                            <li>Data Governance</li>
-                            <li>FinOps</li>
-                            <li>Analytics Engineering</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- ═══ Formação e publicação ═══ -->
+    <section class="section section--alt" id="formacao" aria-labelledby="formacao-titulo">
+        <div class="wrap wrap--narrow">
+            <h2 class="section-title" id="formacao-titulo">Formação e publicação</h2>
+
+            <div class="cards cards--2">
+                <article class="card reveal">
+                    <p class="card-kicker">Formação</p>
+                    <h3>Bacharelado em Sistemas de Informação</h3>
+                    <p>Instituto Federal Fluminense (IFF)</p>
+                    <p class="mono" style="margin-top:.25rem">
+                        <time datetime="2011">2011</time> – <time datetime="2018">2018</time>
+                    </p>
+                </article>
+
+                <article class="card reveal">
+                    <p class="card-kicker">Publicação</p>
+                    <h3>
+                        <a class="card-link" href="https://www.abepro.org.br/biblioteca/TN_STO_263_510_35412.pdf" rel="noopener noreferrer">
+                            Um Microservice de Apoio à Tomada de Decisão, Baseado no Algoritmo ELECTRE TRI
+                            <span class="card-link-icon" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                                    <path d="M7 17 17 7M9 7h8v8"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </h3>
+                    <p>Ismael Moreira de Brito, Kíssila da Silva Ventura e Vinicius Barcelos da Silva</p>
+                    <p class="mono" style="margin-top:.5rem">
+                        XXXVIII ENEGEP · Maceió, AL<br>
+                        <time datetime="2018-10">outubro de 2018</time> · ABEPRO
+                    </p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 text-center">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-2xl font-bold text-white mb-4 tracking-tight">Pronto para o próximo desafio.</h2>
-            <p class="text-slate-500 text-sm mb-12 max-w-lg mx-auto leading-relaxed">Focado em converter complexidade técnica em rentabilidade organizacional e escala sustentável.</p>
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="https://github.com/imbrito" class="text-slate-500 hover:text-white transition-colors text-xl"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/imbrito/" class="text-slate-500 hover:text-white transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
+    <!-- ═══ Contato ═══ -->
+    <section class="contact" id="contato" aria-labelledby="contato-titulo">
+        <div class="wrap">
+            <h2 id="contato-titulo">Vamos conversar.</h2>
+            <p class="contact-lead">Estou no Rio de Janeiro. E-mail e LinkedIn são os caminhos mais rápidos.</p>
+
+            <div class="contact-actions">
+                <a class="btn btn--primary mono" id="email-contato" href="#contato"
+                   data-user="imbrito1986" data-domain="gmail.com">
+                    <span data-email-text>imbrito1986 [arroba] gmail.com</span>
+                </a>
+                <a class="btn btn--ghost" href="https://www.linkedin.com/in/imbrito" rel="noopener noreferrer">LinkedIn</a>
+                <a class="btn btn--ghost" href="https://github.com/imbrito" rel="noopener noreferrer">GitHub</a>
             </div>
-            <p class="mono text-[9px] text-slate-700 uppercase tracking-[0.4em]">
-                &copy; 2026 • Engenharia de Software e Dados de Alta Performance.
-            </p>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <ul class="social">
+                <li>
+                    <a href="https://github.com/imbrito" rel="noopener noreferrer"
+                       aria-label="Perfil de Ismael Moreira de Brito no GitHub">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/imbrito" rel="noopener noreferrer"
+                       aria-label="Perfil de Ismael Moreira de Brito no LinkedIn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+            <p class="copyright">&copy; 2026 Ismael Moreira de Brito • Rio de Janeiro, Brasil</p>
         </div>
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.glass-card, .relative.pl-12');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    el.style.opacity = "1";
-                    el.style.transform = "translateY(0)";
-                }
+    // O e-mail não existe como texto no HTML servido: é montado aqui em runtime.
+    // Um scraper que faz regex de endereço no fonte não encontra nada; sem JS,
+    // o texto de fallback ("[arroba]") continua legível para humanos.
+    (function () {
+        var link = document.getElementById('email-contato');
+        if (link) {
+            var addr = link.dataset.user + String.fromCharCode(64) + link.dataset.domain;
+            link.href = 'mailto:' + addr;
+            link.querySelector('[data-email-text]').textContent = addr;
+            link.removeAttribute('data-user');
+            link.removeAttribute('data-domain');
+        }
+
+        // Revelação ao rolar. IntersectionObserver não força reflow —
+        // o navegador entrega a interseção já calculada, fora da thread de layout.
+        var alvos = document.querySelectorAll('.reveal');
+        // O fallback é instantâneo de propósito: não adianta acionar uma transição
+        // num navegador que já demonstrou não estar animando. Mostra e pronto.
+        function revelarTudo() {
+            for (var i = 0; i < alvos.length; i++) {
+                alvos[i].style.transition = 'none';
+                alvos[i].classList.add('is-visible');
+            }
+        }
+
+        if (!('IntersectionObserver' in window)) { revelarTudo(); return; }
+
+        var entregou = false;
+        var obs = new IntersectionObserver(function (entradas) {
+            entregou = true;
+            entradas.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('is-visible');
+                obs.unobserve(e.target);   // uma vez revelado, para de observar
             });
-        });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+
+        try {
+            alvos.forEach(function (el) { obs.observe(el); });
+        } catch (e) {
+            revelarTudo();
+            return;
+        }
+
+        // Rede de segurança: o callback inicial do IntersectionObserver chega em
+        // um ou dois frames num navegador que está pintando. Se em 1,2 s nada
+        // chegou, o mecanismo não está funcionando (aba em segundo plano nunca
+        // trazida ao primeiro plano, renderização suspensa, extensão que o
+        // desliga) — e aí é melhor mostrar tudo do que deixar metade da página
+        // invisível. O custo é apenas perder a animação nesses casos.
+        setTimeout(function () { if (!entregou) revelarTudo(); }, 1200);
+    })();
     </script>
 </body>
 </html>
