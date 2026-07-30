@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página não encontrada (404) — Ismael Moreira de Brito</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#020617">
+<link rel="canonical" href="https://imbrito.com.br/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Inter';
+    src:url('/assets/fonts/inter-latin-var.woff2') format('woff2');
+    font-weight:300 800;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Fira Code';
+    src:url('/assets/fonts/fira-code-latin-var.woff2') format('woff2');
+    font-weight:300 700;font-style:normal;font-display:swap;
+  }
+
+  :root{
+    --bg:#020617;
+    --surface:#0f172a;
+    --text:#cbd5e1;
+    --text-dim:#8b98ad;
+    --white:#fff;
+    --accent:#6366f1;
+    --accent-strong:#4f46e5;
+    --accent-soft:#a5b4fc;
+    --hairline:rgba(255,255,255,.08);
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --mono:'Fira Code',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    padding:2rem 1.5rem;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    background-image:radial-gradient(circle at 50% 30%,rgba(79,70,229,.14) 0%,rgba(2,6,23,0) 60%);
+  }
+  @supports not (min-height:100svh){ body{min-height:100vh} }
+
+  main{max-width:34rem;text-align:center}
+
+  .mark{
+    display:inline-flex;align-items:center;gap:.6rem;
+    margin-bottom:2.5rem;text-decoration:none;
+    color:var(--white);font-family:var(--mono);font-weight:700;
+    letter-spacing:-.02em;
+  }
+  .mark svg{display:block;border-radius:7px}
+
+  .code{
+    font-family:var(--mono);font-size:.75rem;font-weight:500;
+    letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent-soft);
+    margin:0 0 1rem;
+  }
+
+  h1{
+    font-size:clamp(1.75rem,6vw,2.5rem);
+    font-weight:800;letter-spacing:-.03em;line-height:1.15;
+    color:var(--white);margin:0 0 1rem;
+  }
+  h1 span{color:var(--accent)}
+
+  p.lead{color:var(--text-dim);margin:0 0 2.5rem;font-size:1rem}
+
+  .actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+  .btn{
+    display:inline-block;padding:.85rem 1.6rem;border-radius:.6rem;
+    font-weight:700;font-size:.9rem;text-decoration:none;
+    transition:background-color .25s,border-color .25s,color .25s;
+  }
+  .btn-primary{background:var(--accent-strong);color:var(--white);border:1px solid var(--accent-strong)}
+  .btn-primary:hover{background:#4338ca}
+  .btn-ghost{background:rgba(15,23,42,.6);color:var(--white);border:1px solid var(--hairline)}
+  .btn-ghost:hover{border-color:rgba(99,102,241,.5)}
+
+  a:focus-visible,.mark:focus-visible{
+    outline:2px solid var(--accent-soft);
+    outline-offset:3px;border-radius:.4rem;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+  <main>
+    <a class="mark" href="/">
+      <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="#4f46e5"/>
+        <g fill="#fff">
+          <rect x="5.6" y="11.3" width="20.8" height="3.2" rx="1.3"/>
+          <rect x="5.6" y="17.5" width="20.8" height="3.2" rx="1.3"/>
+          <g transform="translate(2.25 0) skewX(-8)">
+            <rect x="9.9" y="5.6" width="3.2" height="20.8" rx="1.3"/>
+            <rect x="18.5" y="5.6" width="3.2" height="20.8" rx="1.3"/>
+          </g>
+        </g>
+      </svg>
+      <span>IMBRITO</span>
+    </a>
+
+    <p class="code">Erro 404</p>
+    <h1>Esta rota não <span>existe.</span></h1>
+    <p class="lead">
+      O endereço que você abriu não corresponde a nenhuma página deste site.
+      Pode ter sido movido, ou o link estava incompleto.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Ir para a página inicial</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/imbrito" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/imbrito" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </main>
+</body>
+</html>
