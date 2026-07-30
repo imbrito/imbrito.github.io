@@ -226,13 +226,34 @@ done
 
 ## 9. Repositório
 
-- [ ] **Settings → Code security → Private vulnerability reporting: Enable.** Sem isso, o
-      link de advisory que o `SECURITY.md` divulga retorna 404.
-- [ ] Preencher a descrição e o site do repositório (aparece na busca do GitHub e reforça
-      o `sameAs` do JSON-LD).
+- [x] **Settings → Code security → Private vulnerability reporting: Enable.** Ativado em
+      30/07/2026 e confirmado: o botão "Report a vulnerability" aparece na aba Security
+      pública, que é o sinal externo de que o canal divulgado no `SECURITY.md` existe.
+
+      > Sem estar logado, `…/security/advisories/new` responde **302 para o login**,
+      > independente de o recurso existir ou não. Só a aba Security, ou a URL com você
+      > autenticado, distingue os dois casos.
+
+- [x] Preencher a descrição e o site do repositório (aparece na busca do GitHub e reforça
+      o `sameAs` do JSON-LD). Feito em 30/07/2026.
+
+- [ ] **Corrigir o campo "site" do repositório para a URL canônica.** Hoje está
+      `https://www.imbrito.com.br`, que responde **301** para o apex. Trocar por
+      `https://imbrito.com.br` elimina o salto e mantém todo ponteiro externo na mesma
+      forma canônica declarada no `<link rel="canonical">` e nos `@id` do JSON-LD.
+
+- [ ] Opcional: adicionar *topics* ao repositório (hoje vazio). Ajuda só na busca interna
+      do GitHub, não no Google.
+
 - [x] Conferir se o perfil do GitHub aponta para `imbrito.com.br` e se o LinkedIn tem o site
       no campo de website. `sameAs` é **bidirecional na prática**: os três apontando entre si
-      é o que consolida a entidade.
+      é o que consolida a entidade. Verificado em 30/07/2026 — o perfil traz `blog`,
+      `location: Rio de Janeiro, RJ` e `company: Mercado Livre`, coerentes com o JSON-LD.
+
+- [ ] Dispensar os alertas obsoletos do Dependabot em
+      <https://github.com/imbrito/imbrito.github.io/security/dependabot>. São resquícios de
+      um `Gemfile.lock` que existiu no histórico; o projeto não tem dependência alguma.
+      (Não é verificável de fora — o painel exige autenticação.)
 
 ---
 
