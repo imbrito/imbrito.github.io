@@ -46,9 +46,9 @@ curl -s -o /dev/null -w "%{http_code}\n" https://imbrito.com.br/pagina-que-nao-e
   Se preferir a verificação por DNS (cobre todos os subdomínios de uma vez), você vai
   precisar de acesso ao painel do registrador.
 
-- [ ] Se escolher verificação por meta tag, cole a tag fornecida no `<head>` do
-      `index.html`, logo abaixo da linha `<meta name="author">`, e faça push. **Não remova
-      depois** — o Google revalida periodicamente.
+- [x] **Meta tag de verificação já está no ar** (adicionada em 30/07/2026, no `<head>` do
+      `index.html`, logo abaixo de `<meta name="robots">`). **Não remova** — o Google
+      revalida periodicamente e a propriedade cai se a tag sumir.
 
 - [ ] Enviar o sitemap: menu **Sitemaps** → `sitemap.xml` → Enviar.
 
