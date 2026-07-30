@@ -1,0 +1,59 @@
+# https://imbrito.com.br/robots.txt
+# Ismael Moreira de Brito — site pessoal. Todo o conteúdo é público e indexável.
+
+User-agent: *
+Allow: /
+
+# --- Buscadores tradicionais ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- Crawlers de LLM / busca generativa: acesso explicitamente permitido ---
+# Quero ser encontrável e citável por assistentes de IA.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://imbrito.com.br/sitemap.xml
