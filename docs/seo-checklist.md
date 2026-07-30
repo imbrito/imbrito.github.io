@@ -141,6 +141,45 @@ Nada disso foi medido localmente. **A nota só existe contra a URL publicada.**
 - [x] Opcional: <https://www.webpagetest.org> a partir de São Paulo, para ver a latência
       real do CDN do GitHub Pages para o Brasil.
 
+### Baseline registrado — 30/07/2026
+
+Mobile, Lighthouse 13.4.1, Moto G Power emulado, limitação lenta de 4G.
+Duas execuções no mesmo dia, antes e depois da correção de CLS.
+
+**Execução 1 — commit `0225ad4`, antes da correção**
+
+| | Valor | Score | Peso | Pontos |
+|---|---|---|---|---|
+| First Contentful Paint | 1,1 s | 1,00 | 10 | 10,00 |
+| Largest Contentful Paint | 1,7 s | 0,99 | 25 | 24,75 |
+| Total Blocking Time | 0 ms | 1,00 | 30 | 30,00 |
+| Cumulative Layout Shift | **0,109** | 0,87 | 25 | 21,75 |
+| Speed Index | 2,4 s | 0,98 | 10 | 9,80 |
+| | | | | **96** |
+
+Categorias: Desempenho **96**, Acessibilidade **100**, Práticas recomendadas **100**,
+SEO **100**.
+
+Um único layout shift, atribuído pelo Lighthouse a
+`main#conteudo > section#perfil > div.wrap > ul.logos`. A origem, porém, era o parágrafo
+acima: `.hero-lead` passava de 5 para 4 linhas no swap da fonte e empurrava 27,2 px de
+conteúdo. Corrigido em `681ddf0` com o `@font-face 'Inter Fallback'` de métricas casadas.
+
+**Execução 2 — commit `681ddf0`, depois da correção**
+
+Categorias: Desempenho **100**, Acessibilidade **100**, Práticas recomendadas **100**,
+SEO **100**.
+
+> Os valores individuais das cinco métricas desta execução não foram capturados — só as
+> quatro notas de categoria. Se quiser um baseline completo para comparação futura, rode o
+> PageSpeed de novo e cole os cinco tempos aqui.
+
+**Como usar este baseline.** Depois de qualquer edição no `index.html`, rode o PageSpeed e
+compare. Se o Desempenho cair, a suspeita nº 1 é CLS, e a nº 2 é peso novo no caminho
+crítico. Reproduzir CLS localmente exige **viewport de 412×823** — foi medir a 375 px que
+me fez estimar 0,008 quando o real era 0,109. Quebra de linha é função degrau: um parágrafo
+na fronteira de quebra desloca uma linha inteira, não uma fração proporcional.
+
 ---
 
 ## 7. Acessibilidade — o que ferramenta automática não pega
